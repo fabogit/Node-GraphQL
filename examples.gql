@@ -1,0 +1,32 @@
+query GamesQuery {
+  games {
+    id
+  }
+}
+
+# Set Variable
+{
+  "id": "1"
+}
+
+query ReviewQuery($id: ID!) {
+  review(id: $id) {
+    rating,
+    content
+  }
+}
+
+query GameQuery($id: ID!) {
+  game(id: $id) {
+    title,
+    id,
+    platform
+  }
+}
+
+query AuthorQuery($id: ID!) {
+  author(id: $id) {
+    isVerified
+    id
+  }
+}

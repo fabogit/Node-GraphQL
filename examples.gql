@@ -40,3 +40,68 @@ query GameQuery($id: ID!) {
     }
   }
 }
+
+query AuthorQuery($id: ID!) {
+  author(id: $id) {
+    name,
+    reviews {
+        rating,
+        content
+    }
+  }
+}
+
+query ReviewQuery($id: ID!) {
+  review(id: $id) {
+    rating,
+    game {
+        title,
+        platform
+        reviews {
+            rating
+        }
+    }
+    author{
+        name
+        isVerified
+    }
+  }
+}
+
+mutation DeleteMutation($id: ID! ) {
+  deleteGame(id: $id) {
+    id,
+   title
+  }
+}
+
+# Create Game
+{
+  "game": {
+    "title": "New Game",
+    "platform": ["switch", "ps5"]
+  }
+}
+
+mutation AddMutation($game: AddGameInput!) {
+  addGame(game: $game) {
+    id
+    title
+    platform
+  }
+}
+
+# Update Game
+{
+  "edits": {
+    "title": "updated title"
+  },
+  "id": "2"
+}
+
+mutation EditMutation($edits: EditGameInput!, $id: ID!) {
+  updateGame(id: $id, edits: $edits) {
+    title
+    platform
+  }
+}

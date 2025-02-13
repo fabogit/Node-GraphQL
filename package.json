@@ -6,7 +6,7 @@
   "main": "./src/index.js",
   "name": "Node-GraphQL",
   "scripts": {
-    "start": "node ./src/index.js"
+    "start": "node --watch ./src/index.js"
   },
   "type": "module",
   "version": "1.0.0",

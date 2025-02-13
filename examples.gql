@@ -30,3 +30,13 @@ query AuthorQuery($id: ID!) {
     id
   }
 }
+
+query GameQuery($id: ID!) {
+  game(id: $id) {
+    title
+    reviews {
+      id
+      rating
+    }
+  }
+}
